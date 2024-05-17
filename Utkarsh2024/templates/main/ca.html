@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'main/header.html' %}
+
+<div class="pt-10">
+    
+    <img src="{% static 'media/1.png' %}">
+    <img src="{% static 'media/2.png' %}">
+    <img src="{% static 'media/3.png' %}">
+</div>
+
+{% include 'main/footer.html' %}
+{% endblock %}

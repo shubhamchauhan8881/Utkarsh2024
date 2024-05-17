@@ -1,0 +1,65 @@
+{% load static %}
+<div class="hero h-screen w-full relative">
+    <!-- <audio id="bg_audio" autoplay loop>
+        <source src="{% static 'media/bgm.mp3' %}" type="audio/mpeg">
+    </audio> -->
+    <div class="absolute text-xl top-24 left-5 yatra" style="z-index: 1;" data-aos="fade-down">
+        <p class="">February 21</p>
+        <svg class="h-16 w-16 relative left-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 100" fill="none">
+            <path stroke="black" d="M53 1C74 10 102.9 30.7 50.5 41.5C28.5 46.3333 -11.3 50.7 5.50001 29.5C10 24.5 23.3 16.4 40.5 24C47.1667 28.3333 62.6 40.2 71 53C74 58.1667 79.4 70.5 77 78.5C76.5 81.8333 73.5 89.7 65.5 94.5C57.3333 96.6667 40.3 96.5 37.5 78.5C38.3333 74 43.3 66.8 56.5 74C63.1667 77.5 78.8 87.5 88 99.5" stroke="#FFD43B"/>
+        </svg>
+        <p class="relative left-10">February 23</p>
+    </div>
+
+    <div class="relative h-full w-full  bg-[#FFBD40]">
+        <video id="cassette" muted="muted" src="{% static './media/BBD UTKARSH FLASHBACK (4).mp4' %}" class="w-full h-full object-fit object-bottom  lg:object-left "  autoplay loop></video>
+    </div>
+
+    <div class="absolute z-10 right-10 bottom-10 lg:bottom-5 lg:right-0 lg:left-0">
+        <div class="flex items-center justify-center relative">
+            <div class="relative inline-block">
+                <img src="{% static './media/cross.svg' %}"/>
+                <p  class="absolute top-8 left-[0px] text-center leading-3"><span id="timer-days">00</span><br><span class="text-xs">Days</span></span>
+                    <p  class="absolute top-0 left-8 text-center leading-3"><span id="timer-hours">00</span><br><span class="text-xs">Hours</span></p>
+                <p  class="absolute bottom-8 right-[-15px] text-center leading-3"><span id="timer-minutes">00</span><br><span class="text-xs">Minutes</span></p>
+                <p  class="absolute bottom-0 right-5 text-center leading-3"><span id="timer-seconds">00</span><br><span class="text-xs">Seconds</span></p>
+            </div>
+        </div>
+    </div> 
+
+
+    <!-- <div class="absolute z-10 bottom-20 right-10 ">
+        <div class="flex items-center justify-center relative">
+            <div>
+                <img src="{% static './media/cross.svg' %}"/>
+                <p  class="absolute top-8 left-[0px] text-center leading-3"><span id="timer-days">00</span><br><span class="text-xs">Days</span></span>
+                    <p  class="absolute top-0 left-8 text-center leading-3"><span id="timer-hours">00</span><br><span class="text-xs">Hours</span></p>
+                <p  class="absolute bottom-8 right-[-15px] text-center leading-3"><span id="timer-minutes">00</span><br><span class="text-xs">Minutes</span></p>
+                <p  class="absolute bottom-0 right-5 text-center leading-3"><span id="timer-seconds">00</span><br><span class="text-xs">Seconds</span></p>
+            </div>
+        </div>
+    </div> -->
+
+
+
+    <div class="i absolute top-0 left-0 right-0 h-full" style="z-index: 1;">
+        <div class="flex h-full flex-col items-center  sm:items-end justify-center pe-0 sm:pe-5 ">
+            <div class="text-center sm:text-right">
+                <p class="Skincake text-xs md:text-md lg:text-lg">BBD CELEBRATING 25 MILESTONES, DOUBLE THE CHEER!</p>
+                <p class="text-6xl md:text-7xl lg:text-8xl font-['ShadowHand'] pb-3" >UTKARSH'24</p>
+                <div class="jubilee-container md:block">
+                    <div class="jubilee">
+                        <p class="Skincake stroke">
+                            <span class="twenty-five">25</span>
+                            <span class="leading-2">Silver Jubilee <br>Anniversary</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="">
+    <img src="{% static './media/divider2.png' %}" class="bg-white h-12 w-full object-fit" />
+</div>

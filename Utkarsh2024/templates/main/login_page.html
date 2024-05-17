@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'main/header.html' %}
+{% include 'main/hero.html' %}
+{% load static %}
+<div class="pop-provider-wrapper">
+    <div class="pop-provider">
+        
+        <div class="loginpage bg-white p-8 rounded-md">
+            <form action="./" method="post">
+                {% csrf_token %}
+                <label> 
+                    <h2 class="text-shubham text-3xl text-center  font-['Airnt']">UTKARSH'24</h2>
+                    <h2 class="text-center pb-10">Sign in to your account</h2>
+                </label>
+                {% for field in loginform %}
+                    <div class="formInput  mt-3">
+                        <label>
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {{ field.errors }}
+                        </label>
+                    </div>
+                {% endfor %}
+                <label>
+                    <input type="submit" class="bg-shubham cursor-pointer  text-xl py-2 rounded-md text-white w-full mt-5" value="Signin">
+                </label>
+                
+                <label>
+                    <p class="mt-3">New User? <a class="hover:text-shubham font-bold" href="../../../register/">Register here.</a></p>
+                </label>
+            </form>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

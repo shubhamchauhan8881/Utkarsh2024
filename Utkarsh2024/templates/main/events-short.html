@@ -1,0 +1,73 @@
+{% load static %}
+<div class="events-page bg-white relative">
+    <div class="intro-bg" style="font-family: 'Bangers', system-ui;">
+        <div class="rail">
+            <span>UTKARSH</span>
+            <span>UTKARSH</span>
+            <span>25 YEARS</span>
+            <span>25 YEARS</span>
+            <span>SILVER JUBILEE</span>
+            <span>SILVER JUBILEE</span>
+        </div>
+        <div class="rail">
+            <span>SILVER JUBILEE</span>
+            <span>SILVER JUBILEE</span>
+            <span>UTKARSH</span>
+            <span>UTKARSH</span>
+            <span>25 YEARS</span>
+            <span>25 YEARS</span>
+
+        </div>
+        <div class="rail">
+            <span>25 YEARS</span>
+            <span>25 YEARS</span>
+            <span>UTKARSH</span>
+            <span>UTKARSH</span>
+            <span>SILVER JUBILEE</span>
+            <span>SILVER JUBILEE</span>
+        </div>
+    </div>
+    <div class="relative z-10 px-3">
+        <img src="{% static './media/overlay-top.png' %}" class="object-fit mb-3"/>
+        <p class="text-right text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-['ShadowHand']" data-aos="fade-up">MAKE YOUR <span class="text-[#FFBD40]">MARK</span>,</p>
+        <p class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-left font-['ShadowHand']" data-aos="fade-down">JOIN THE <spam class="text-[#FFBD40]">JUBILEE</spam> SPARK,</p>
+        
+        <div class="mt-5 text-xl py-5" style="display: flex; align-items:  center; justify-content: space-between;">
+            <p class="titles">EVENT LIST</p>
+            <a href="../../../events/"><button class="titles">
+                <span>SEE ALL </span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="inline mb-1 w-3 h-5" viewBox="0 0 10 11" fill="none">
+                <path d="M1.5115 1.98856H8.5344M8.5344 1.98856V9.01146M8.5344 1.98856L1.5115 9.01146" stroke="#1E1E1E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button></a>
+        </div>
+        
+        <div class="events-listing pb-10 p-5">
+            {% for ev in events %}
+            <div class="events-card">
+                <div class="Afacad h-full">
+                    <div class="events-card-image">
+                        <img src="{{ev.image.url}}" style="height: 100%; width: 100%; object-fit: cover;">
+                    </div>
+                    <div style="word-wrap: break-word; white-space: wrap;">
+                        <h2 class="text-xl yatra">{{ev.name}}</h2>
+                        <div class="grow">
+                            <p class="text-sm my-3">{{ev.mini_description}}</p>
+                        </div>
+                    </div>
+                    <div class="evets-card-btns">
+                        <a href="./events/?q={{ev.id}}" class=""><button>EXPLORE</button></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+           
+          
+            
+
+        </div>
+        <img src="{% static './media/overlay-top.png' %}" />
+
+    </div>
+
+</div>

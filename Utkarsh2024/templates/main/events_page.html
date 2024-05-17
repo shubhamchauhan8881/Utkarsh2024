@@ -1,0 +1,110 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% include 'main/header.html' %}
+
+
+<div class="events-all-page">
+
+    <div class="pt-28 px-5">
+        <p class="text-right text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-['ShadowHand']" data-aos="fade-up">MAKE YOUR <span class="text-[#FFBD40]">MARK</span>,</p>
+        <p class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-left font-['ShadowHand']" data-aos="fade-down">JOIN THE <spam class="text-[#FFBD40]">JUBILEE</spam> SPARK,</p>
+        <div class="flex flex-col md:flex-row gap-10 items-top py-10">
+            <div class="bg-white border-2 h-96 py-8 px-3 pe-16 rounded py-5 yatra">
+                <div>
+                    <p class="text-xl pb-3">FILTERS</p>
+                </div>
+                <div class="text-nowrap">
+                    <ul>
+                        <li><a class="hover:text-[#FFBD40] text-md" href="./?q=all">All</a></li>
+                        {% for ev in events %}
+                        <li><a class="hover:text-[#FFBD40] text-md" href="./?q={{ev.id}}">{{ev.name}}</a></li>
+                        {% endfor %}
+                        <li><div style="border: 2px dashed black; margin: 15px 0px;"></div></li>
+                        <li><a class="hover:text-[#FFBD40] text-md" href="./?q=team">TEAM</a></li>
+                        <li><a class="hover:text-[#FFBD40] text-md" href="./?q=solo">SOLO</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- grid gap-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 -->
+            <div class="flex flex-wrap gap-1 justify-center items-center">
+                {% for ssev in filtered %}
+                    <div>
+                        <div class="ev-wrapper hidden" id="ev-wrapper_{{ssev.id}}">
+                            <div class="fixed top-0 left-0 right-0 bottom-0 p-10" style="z-index: 9999999; background-color: rgba(255, 255, 255, 0.9);">
+                                <div class="absolute right-16 top-16"><button id="ev-wrapper-btn" value="{{ssev.id}}" class=" text-rose-600 border-2 rounded-full border-rose-600 px-3 py-1 text-2xl font-bold">&cross;</button></div>
+                                <div class="flex flex-col md:flex-row overflow-y-scroll items-top h-full bg-[#FFBD40] rounded overflow-hidden">
+                                    <div class="w-full h-2/6 sm:h-3/6 md:h-full md:w-1/3">
+                                        <img src="{{ssev.image.url}}" style="height: 100%; width: 100%; object-fit: cover;">
+                                    </div>
+                                    <div class="p-5 h-4/6 sm:h-3/6 md:h-full md:w-2/3 inline-flex flex-col">
+                                        <h2 class="text-xl lg:text-5xl yatra py-2 uppercase">{{ssev.name}}</h2>
+                                        <h5 class="text-sm lg:text-xl uppercase">{{ssev.parent_sub_event}} - <span>{{ssev.parent_sub_event.parent_event.name}}</span></h5>
+                                        <p class="opacity-80 mt-5">Description: </p>
+                                        <p class="text-lg grow">
+                                            {{ssev.descp}}
+                                        </p>
+                                        <div class="">
+                                            {% if request.user.is_authenticated %}
+                                                {% if ssev.id in user_enrolled %}
+                                                    <button class="w-full bg-white text-black hover:bg-shubham hover:text-white rounded-full py-2 border-2 border-shubham duration-700">ALREADY ENROLLED</button>
+                                                {% else %}
+                                                    <a href="{% if  ssev.is_team_event %}../../../team-registration{{ssev.id}} {% else %}../../team-registration/{{ssev.id}} {% endif %}">
+                                                        <button class="w-full bg-white text-black hover:bg-shubham hover:text-white rounded-full py-2 border-2 border-shubham duration-700">ENROLL</button>
+                                                    </a>
+                                                {% endif %}
+                                            {% else %}
+                                            <a href="../../../register">   
+                                                <button class="w-full bg-white text-black hover:bg-shubham hover:text-white rounded-full py-2 border-2 border-shubham duration-700">REGISTER</button>
+                                            </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="events-card bg-white mx-auto">
+                            <div class="Afacad h-full">
+                                <div class="events-card-image">
+                                    <img src="{{ssev.image.url}}" style="height: 100%; width: 100%; object-fit: cover;">
+                                    <div class="border-2">
+                                        {% if ssev.is_team_event %}TEAM{% else %}SOLO{% endif %}
+                                    </div>
+                                </div>
+                                
+                                <div class="font-['AfacadRegular'] w-full">
+                                    <h5 class="text-sm uppercase">{{ssev.parent_sub_event}} - <span class="text-xs">{{ssev.parent_sub_event.parent_event.name}}</span></h5>
+                                    <h2 class="text-md  yatra py-2 uppercase">{{ssev.name}}</h2>
+                                    <div class="grow pb-2">
+                                        <p class="text-sm normal-case text-wrap">{{ssev.mini_description}}</p>
+                                    </div>
+                                </div>
+            
+                                <div class="evets-card-btns">
+                                    <button id="show_ev_wrapper" value="{{ssev.id}}">EXPLORE</button>
+                                    {% if request.user.is_authenticated %}
+                                        {% if ssev.id in user_enrolled %}
+                                            <button>Enrolled</button>
+                                        {% else %}
+                                        <a href="{% if  ssev.is_team_event %}../../../team-registration/{{ssev.id}} {% else %}../../events/participate/{{ssev.id}} {% endif %}">
+                                            <button>ENROLL</button></a>
+                                        {% endif %}
+                                    {% else %}
+                                    <a href="../../../register"><button>REGISTER</button></a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% include 'main/footer.html' %}
+{% endblock %}

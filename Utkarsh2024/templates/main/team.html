@@ -1,0 +1,28 @@
+{% load static %}
+<div class="team-page">
+    <div class="team-page-wrapper relative z-10">   
+        <div class="team-page-title">
+            <p class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-['ShadowHand'] text-left" data-aos="fade-up"><span class="text-[#FFBD40]">WEAVING</span> THE</p>
+            <p class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-['ShadowHand'] text-center"><span class="text-[#FFBD40]">SILVER</span> SCREEN</p>
+            <p class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-['ShadowHand'] text-right" data-aos="fade-down">ONE <span class="text-[#FFBD40]">BYTE</span> AT A TIME.</p>
+        </div>
+
+        <div class="team-card-cotnainer ">
+            {% for team in team_members %}
+                <div class="team-card">
+                    <div class="image">
+                        <img src="{{team.image.url}}" style="height: 100%; width: 100%; object-fit: cover;">
+                        <div class="links">
+                            <a href="{{team.insta_url}}"><img src="{% static './media/instagram.png' %}"/></a>
+                            <a href="{{team.linked_in}}"><img src="{% static './media/linked.png' %}"/></a>
+                        </div>
+                    </div>
+                    <div class="team-descp">
+                        <p>{{team.about}}</p>
+                        <p>{{team.name}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

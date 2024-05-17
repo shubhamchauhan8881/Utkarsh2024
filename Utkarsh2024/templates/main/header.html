@@ -1,0 +1,42 @@
+{% load static %}
+<nav class="absolute top-0 left-0 right-0 bg-[#FFBD40] yatra" style="z-index: 88888;">
+    <div class="nav-links flex items-center justify-between px-3">
+        <div class="hidden lg:flex">
+            <p class="bg-[#FFBD40] border-2 border-black rounded-full text-sm px-2">UTKARSH</p>
+            <p class="bg-black text-[#FFBD40] border-2 border-black rounded-full text-sm px-2">FEST</p>
+            <p class="bg-[#FFBD40] border-2 border-black rounded-full text-sm px-2">2024</p>
+        </div>
+
+        <div class="relative nav_ham_btn lg:hidden">
+            <button class=""><span class="text-md">Menu</span> <svg class="inline-block" width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4ZM3 12C3 11.4477 3.44772 11 4 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H4C3.44772 13 3 12.5523 3 12ZM3 18C3 17.4477 3.44772 17 4 17H20C20.5523 17 21 17.4477 21 18C21 18.5523 20.5523 19 20 19H4C3.44772 19 3 18.5523 3 18Z" fill="#000000"></path> </g></svg></button>
+            <div class="overflow-hidden nav_ham_wrapper">
+                <div class="bg-white absolute top-5 p-3 rounded-md z-50">
+                    <a class="hover:text-[#FFBD40]" href="../../../events"><button class="py-2 hover:bg-[#FFBD40] w-full text-left hover:text-white p-2 rounded">EVENTS</button></a>
+                    <a class="hover:text-[#FFBD40]" href="#about-section"><button class="py-2 hover:bg-[#FFBD40] w-full text-left hover:text-white p-2 rounded">ABOUT</button></a>
+                    <a class="hover:text-[#FFBD40]" href="#throwback-section"><button class="py-2 hover:bg-[#FFBD40] w-full text-left hover:text-white p-2 rounded">THROWBACK</button></a>
+                    <a class="hover:text-[#FFBD40] lgn-btn" href="../../ca"><button class="py-2 hover:bg-[#FFBD40] w-full text-left hover:text-white p-2 rounded">CA PORTAL</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-x-10">
+            <a class="hidden lg:block" href="../../../events"><button>EVENTS</button></a>
+            <a class="hidden lg:block" href="#about-section"><button>ABOUT</button></a>
+            <div class="w-44 md:w-60">
+                <a href="../../../"><img src="{% static './media/Logo.svg' %}" class="h-full w-full object-fit"/></a>
+            </div>
+            <a href="#throwback-section" class="hidden lg:block"><button>THROWBACK</button></a>
+            <a class="hidden lg:block" href="../../ca"><button>CA PORTAL</button></a>
+        </div>
+        {% if request.user.is_authenticated %}
+        <a href="../../../user-profile">
+            <button  class="border-2 border-black rounded-full  py-1 px-2 hover:bg-black hover:text-[#FFBD40]">
+                <svg width="22px" height="20px" class="inline-block" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g  id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                {{request.user.username}}
+            </button>
+        </a>
+        {% else %}
+        <a href="../../../login"><button id="login_btn" class="text-sm border-2 border-black rounded-full  md:py-1 px-2 md:px-4 hover:bg-black hover:text-[#FFBD40]">LOGIN</button></a>
+        {% endif %}
+    </div>
+</nav>

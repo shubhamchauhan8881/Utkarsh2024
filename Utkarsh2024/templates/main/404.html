@@ -1,0 +1,9 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+{% include 'main/header.html' %}
+<div class="user-profile bg-white mt-10 px-5">
+    <dotlottie-player src="{% static 'js/404.json' %}" background="transparent" speed="1.5" class="w-full h-full" direction="1" mode="normal" loop autoplay></dotlottie-player>
+</div>
+{% include 'main/footer.html' %}
+{% endblock %}

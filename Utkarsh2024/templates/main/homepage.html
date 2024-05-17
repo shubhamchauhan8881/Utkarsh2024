@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'main/header.html' %}
+{% include 'main/hero.html' %}
+{% include 'main/about.html' %}
+{% include 'main/events-short.html' %}
+{% include 'main/gallery.html' %}
+<div class="h-fit">
+    <img class="w-full h-full object-cotain object-top" src="{% static 'media/dj-night.png' %}">
+</div>
+{% include 'main/team.html' %}
+{% include 'main/footer.html' %}
+{% endblock %}

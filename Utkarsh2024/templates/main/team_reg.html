@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'main/header.html' %}
+
+<div class="flex h-screen items-center px-3 justify-center mt-16">
+    {% if TeamRegSuccess %}
+    <div class="flex flex-col items-center justify-center ">
+        <dotlottie-player src="{% static 'js/teamreg.json' %}" background="transparent" speed="1.5" class="w-full h-[300px] md:h-[400px]" direction="1" mode="normal" loop autoplay></dotlottie-player>
+        <h1 class="font-['AfacadRegular'] text-2xl">Team registered for {{event.name}}</h1>
+        <p class="font-['AfacadRegular'] text-md">Team Members:  {% for i in team_members %}{% if request.user.username == i.user.username %}<span>You, </span>{% else %}<span>{{i.user.first_name}}, </span>{% endif %}{% endfor %}</p>
+
+        <a href="../../../events" class="rounded-full text-2xl text-white py-2 px-6 bg-shubham text-center yatra mt-5">Okay</a>
+    </div>
+    {% else %}
+    <form action="#" method="post" class="bg-[#FFBD40] p-5 rounded">
+        {% csrf_token %}
+        <label> 
+            <h2 class="text-shubham text-2xl text-center font-['Airnt'] mb-5">Register Your Team</h2>
+        </label>
+        <label>
+            <p class="text-md  font-['AfacadRegular']">Enter Utkarsh Id of team memmbers seperated by comma, if alone mention your own Utkarsh id</p>
+        </label>
+        {% for field in form %}
+            <div class="formInput mt-3 font-['AfacadRegular']">
+                <label>
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {{ field.errors }}
+                </label>
+            </div>
+        {% endfor %}
+        <label>
+            <p class="pt-3">Participating in: </p>
+            <input class="bg-slate-100 w-full p-2 rounded cursor-not-allowed" value="{{event.name}}" disabled>
+        </label>
+        <label>
+            <input type="submit" class="bg-emerald-500 cursor-pointer  text-lg py-2 rounded-md text-white w-full mt-5" value="Submit">
+        </label>
+    </form>
+    {% endif %}
+    
+</div>
+
+{% include 'main/footer.html' %}
+{% endblock %}

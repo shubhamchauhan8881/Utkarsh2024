@@ -1,0 +1,39 @@
+{% load static %}
+<div class="glass fixed top-0 left-0 right-0 bottom-0 z-10 {% if Formerrors or  RegSuccess %} h-auto {% else %} h-0 {% endif %} overflow-hidden" id="PopForm">
+    <div class="flex flex-col items-center justify-center h-full px-5 pt-10" id="wrapper">
+        <form action="../../user/register/" method="post" class="relative bg-white overflow-y-scroll w-full lg:w-1/2 py-14 ps-8 pe-6 rounded-md">
+            {% if RegSuccess %}
+            <div class="flex flex-col gap-y-5 items-center justify-center">
+                <dotlottie-player src="{% static 'js/panda.json' %}" background="transparent" speed="1.5" class="w-full h-[200px] md:h-[400px]" direction="1" mode="normal" loop autoplay></dotlottie-player>
+                <h1 class="font-[Afacad-Medium] text-2xl">Registration Succesfull!</h1>
+                <p class="font-[Afacad-Medium] text-md">Your Utkarsh id: {{ukid}}</p>
+
+                <a href="../../../" class="rounded-full text-2xl text-white py-2 w-1/3 md:w-2/12 bg-shubham text-center" style="font-family: 'Afacad-Bold';">Okay</a>
+            </div>
+            {% else %}
+
+            <div class="absolute top-5 right-5">
+                <button type="button" id="closeform" class="text-xl font-bold text-slate-500">X</button>
+            </div>
+            <div> 
+                <h2 class="text-xl md:text-2xl lg:text-4xl text-shubham text-center pb-5" style="font-family: Airnt;">UTKARSH'24</h2>
+                <h2 class="text-md text-center mb-14" style="font-family: 'Poppins', sans-serif; font-weight: 600;">Register your entry</h2>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="formInput">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {{ field.errors }}
+                    </div>
+                {% endfor %}
+                <label>
+                    
+                </label>
+                <input type="submit" class="bg-shubham text-xl py-2 rounded-md text-white mt-5" value="Submit">
+            </div>
+            {% endif %}
+        </form>
+    </div>
+</div>

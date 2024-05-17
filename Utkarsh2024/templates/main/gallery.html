@@ -1,0 +1,25 @@
+<a name="throwback-section"></a>
+<div class="gallery-page py-5">        
+    <div class="swiper mySwiper h-72">
+        <div class="swiper-wrapper">
+            {% for image in throwback %}
+                <div class="swiper-slide">
+                    <img src="{{image.image.url}}"/>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="py-16"></div>
+
+    <div class="swiper mySwiper2 h-72">
+        <div class="swiper-wrapper">
+            {% for image in throwback %}
+                <div class="swiper-slide">
+                    <img src="{{image.image.url}}"/>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,107 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.formInput input, .formInput label, .formInput select{
+    display: block;
+    width: 100%;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+.formInput label{
+    margin-bottom: 5px;
+}
+.formInput input, .formInput select{
+    padding: 0.5rem 0.6rem;
+    border-radius: 0.3rem;
+    background: #EEE;
+}
+
+
+
+@font-face {
+    font-family: 'Airnt';
+    src: url('../fonts/airnt/AirntBold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Afacad';
+    src: url('../fonts/Afacad-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Afacad-Bold';
+    src: url('../fonts/Afacad-Bold.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Afacad-Medium';
+    src: url('../fonts/Afacad-Medium.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Afacad-Semibold';
+    src: url('../fonts/Afacad-SemiBold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Pallete';
+    src: url('../fonts/pallete/Palette Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+form::-webkit-scrollbar{
+    width: 10px;
+}
+
+form::-webkit-scrollbar-thumb{
+    background-color: #eee;
+    border-radius: 0.3rem;
+}
+.animbutton {
+    font-family: 'Afacad',sans-serif;
+    color: #fff;
+    width: 150px;
+    font-weight: 700;
+    transition: all 0.5s;
+    box-shadow: 0 10px 20px -8px rgba(60, 60, 223, 0.7);
+    position: relative;
+}
+  
+  .animbutton:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;  
+    top:8px;
+    right: -10px;
+    transition: 0.5s;
+  }
+  
+  .animbutton:hover{
+    padding-right: 24px;
+    padding-left:8px;
+    
+  }
+  
+  .animbutton:hover:after {
+    opacity: 1;
+    right: 25px;
+  }
+  
+
+.glass{
+    background: rgba( 95, 88, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px ) ;
+    -webkit-backdrop-filter: blur( 4px ) ;
+}
+.errorlist li{
+    color: red;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+

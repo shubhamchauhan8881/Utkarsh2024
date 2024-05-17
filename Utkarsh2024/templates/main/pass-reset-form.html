@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+{% include 'main/header.html' %}
+{% include 'main/hero.html' %}
+<div class="pop-provider-wrapper">
+    <div class="pop-provider">    
+        <div class="loginpage bg-white p-8 rounded-md">
+            {% if passResetSuccess %}
+            <div class="flex flex-col gap-y-5 items-center justify-center">
+                <dotlottie-player src="{% static 'js/panda.json' %}" background="transparent" speed="1.5" class="w-full h-[200px] md:h-[400px]" direction="1" mode="normal" loop autoplay></dotlottie-player>
+                <h1 class="font-['AfacadRegular'] text-2xl leading-3">Password Changed! </h1>
+                <p class="font-['AfacadRegular'] text-md">Your password has been changed successfully. Please login again.</p>
+                <a href="../../../login" class="rounded-full text-xl text-white bg-shubham px-3 py-1 text-center yatra">Okay</a>
+            </div>
+            {% else %}
+            <form action="#" method="post">
+                {% csrf_token %}
+                <label> 
+                    <h2 class="text-shubham text-3xl text-center  font-['Airnt']">UTKARSH'24</h2>
+                    <h2 class="text-center pb-3">Reset your password.</h2>
+                </label>
+                {% for field in form %}
+                    <div class="formInput  mt-3">
+                        <label>
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {{ field.errors }}
+                        </label>
+                    </div>
+                {% endfor %}
+                <label>
+                    <input type="submit" class="bg-shubham cursor-pointer  text-xl py-2 rounded-md text-white w-full mt-5" value="Submit">
+                </label>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

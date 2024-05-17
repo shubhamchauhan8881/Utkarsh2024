@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/new.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="icon" type="image/x-icon" href="{% static 'media/icons/utkarsh-logo.png' %}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta name="author" content="Shubham Chauhan">
+    <meta name="keywords" content="utkarsh, utkarsh 2023,utkarsh24, utkarsh 2024, utkarshh, utkarsh, bbd utkarsh,BBD UTKARSH utkarsh bbd, utkarsh 2023, bbd utkarsh, bbd utkarsh 2023, bbdu utkarsh, bbd annual fest, utkarsh annual fest, bbd annual festival, bbdeg utkarsh, bbdu, bbd university, bbd lucknow, lucknow, lucknow festival">
+    <meta name="description" content="utkarsh  utkarsh 24 ">
+    <title>BBD Utkarsh'24 | MUCH AWAITED ANNUAL FEST | Biggest Fest of Lucknow's Best Educational Group</title>
+</head>
+<body>
+    <div class="body-wrapper">
+        <div class="window-loader fixed top-0 left-0 bottom-0 right-0" style="z-index: 99999999999999999999999;">
+            <div class="flex h-full items-center justify-center bg-black">
+                <div class="loader"></div>
+            </div>
+        </div>
+        {% block content %}
+        {% endblock %}        
+    </div>
+</body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="{% static 'js/new.js' %}"></script>
+<script>
+    AOS.init();
+  </script>
+</html>
